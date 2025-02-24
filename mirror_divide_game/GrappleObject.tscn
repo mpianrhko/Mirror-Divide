@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3owvf6hs2mjy"]
+
+[ext_resource type="Script" path="res://grapple_object.gd" id="1_jiori"]
+[ext_resource type="Texture2D" uid="uid://c4co5123h5mm8" path="res://assetss/coin_blue.png" id="1_ue7e1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76k7u"]
+size = Vector2(46, 76)
+
+[node name="GrappleObject" type="Area2D"]
+script = ExtResource("1_jiori")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 29)
+shape = SubResource("RectangleShape2D_76k7u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18.5625, 31.3039)
+scale = Vector2(0.161299, 0.161299)
+texture = ExtResource("1_ue7e1")

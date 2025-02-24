@@ -1,0 +1,126 @@
+[gd_scene load_steps=12 format=3 uid="uid://dilgrgn4xrt2m"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_eusrx"]
+[ext_resource type="PackedScene" uid="uid://e3xjoir8f4lx" path="res://Player_2.tscn" id="1_qlj28"]
+[ext_resource type="Script" path="res://Player_2.gd" id="2_eap3b"]
+[ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
+[ext_resource type="PackedScene" uid="uid://3owvf6hs2mjy" path="res://GrappleObject.tscn" id="4_b0c1g"]
+[ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
+[ext_resource type="Texture2D" uid="uid://b1s0mvek3nqnp" path="res://assetss/platform_black.png" id="5_q3onh"]
+[ext_resource type="Script" path="res://CameraController.gd" id="6_2p6b3"]
+[ext_resource type="Texture2D" uid="uid://d2hroabycxi1b" path="res://assetss/b_blue_background.png" id="8_exqew"]
+[ext_resource type="AudioStream" uid="uid://devabrng6t8h8" path="res://assetss/zz_bgm.mp3" id="9_fcrqh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
+distance = -323.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_eusrx")
+
+[node name="GrappleObject" parent="." instance=ExtResource("4_b0c1g")]
+position = Vector2(893, 345)
+scale = Vector2(0.561111, 0.561111)
+
+[node name="Player_2" parent="." instance=ExtResource("1_qlj28")]
+position = Vector2(1203, 113)
+scale = Vector2(1.72249, 1.72249)
+script = ExtResource("2_eap3b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(57, 134)
+shape = SubResource("WorldBoundaryShape2D_0s0eq")
+
+[node name="Player" parent="." instance=ExtResource("3_d0l3y")]
+position = Vector2(25, 158)
+scale = Vector2(2.20357, 2.20357)
+
+[node name="Enemy" parent="." instance=ExtResource("4_x7f01")]
+position = Vector2(625, 211)
+scale = Vector2(1.83759, 1.83759)
+
+[node name="PlatformBlack" type="Sprite2D" parent="."]
+position = Vector2(92.625, 551.625)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack2" type="Sprite2D" parent="."]
+position = Vector2(276, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack3" type="Sprite2D" parent="."]
+position = Vector2(459, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack4" type="Sprite2D" parent="."]
+position = Vector2(639.375, 552.375)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack5" type="Sprite2D" parent="."]
+position = Vector2(822.75, 553.75)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack6" type="Sprite2D" parent="."]
+position = Vector2(1005.75, 553.75)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack7" type="Sprite2D" parent="."]
+position = Vector2(1192, 554)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack8" type="Sprite2D" parent="."]
+position = Vector2(1378, 554)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack9" type="Sprite2D" parent="."]
+position = Vector2(1564, 554)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack10" type="Sprite2D" parent="."]
+position = Vector2(-93, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack11" type="Sprite2D" parent="."]
+position = Vector2(-279, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack12" type="Sprite2D" parent="."]
+position = Vector2(-465, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="PlatformBlack13" type="Sprite2D" parent="."]
+position = Vector2(-651, 552)
+scale = Vector2(0.145898, 0.145898)
+texture = ExtResource("5_q3onh")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+script = ExtResource("6_2p6b3")
+player1 = NodePath("../Player")
+player2 = NodePath("../Player_2")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-2.38419e-07, -13)
+scale = Vector2(0.646763, 0.642578)
+texture = ExtResource("8_exqew")
+centered = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_fcrqh")
+parameters/looping = true

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dilgrgn4xrt2m"]
+
+[ext_resource type="PackedScene" uid="uid://osg7dk77rybd" path="res://frog.tscn" id="1_xislg"]
+[ext_resource type="Script" path="res://frog.gd" id="2_34mc6"]
+[ext_resource type="PackedScene" uid="uid://c5clromjmgu7k" path="res://Player.tscn" id="3_d0l3y"]
+[ext_resource type="PackedScene" uid="uid://cr0fd3esxoj37" path="res://Enemy.tscn" id="4_x7f01"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0s0eq"]
+distance = -323.0
+
+[node name="Game" type="Node2D"]
+
+[node name="frog" parent="." instance=ExtResource("1_xislg")]
+position = Vector2(3, 122)
+script = ExtResource("2_34mc6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(57, 134)
+shape = SubResource("WorldBoundaryShape2D_0s0eq")
+
+[node name="Player" parent="." instance=ExtResource("3_d0l3y")]
+position = Vector2(179, 126)
+
+[node name="Enemy" parent="Player" instance=ExtResource("4_x7f01")]
+position = Vector2(195, -4)

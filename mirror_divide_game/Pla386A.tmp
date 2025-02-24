@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5clromjmgu7k"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_i21aj"]
+[ext_resource type="Texture2D" uid="uid://we2lf56epipx" path="res://assets/Main Characters/Pink Man/Fall (32x32).png" id="1_vh16e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eerp1"]
+size = Vector2(23, 27.25)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_i21aj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vh16e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.375)
+shape = SubResource("RectangleShape2D_eerp1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]

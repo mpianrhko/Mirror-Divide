@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvmkr6u6s18m"]
+
+[ext_resource type="Texture2D" uid="uid://cfc00trfqqiu2" path="res://assetss/gun_blue_2.png" id="1_eypdc"]
+[ext_resource type="Texture2D" uid="uid://gh2g1ctcj6as" path="res://assetss/hand_grabbed.png" id="2_4ogrc"]
+[ext_resource type="Texture2D" uid="uid://cgdtbb5umld1o" path="res://assetss/hand_released.png" id="3_gqru1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spgc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gqru1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ogrc")
+}],
+"loop": true,
+"name": &"grab",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rh0e"]
+size = Vector2(13.6885, 6.9122)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-9, -1)
+target_position = Vector2(0, 100)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.88642, 1.27384)
+scale = Vector2(0.0759472, 0.054392)
+texture = ExtResource("1_eypdc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D2"]
+position = Vector2(-4, -1)
+scale = Vector2(0.0298823, 0.0298823)
+sprite_frames = SubResource("SpriteFrames_spgc4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -1)
+scale = Vector2(0.0298823, 0.0298823)
+sprite_frames = SubResource("SpriteFrames_spgc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.44321, -0.863082)
+scale = Vector2(0.665782, 1.48633)
+shape = SubResource("RectangleShape2D_2rh0e")
+
+[node name="GrappleLine" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="GrappleLine"]
+color = Color(0, 0.333333, 1, 1)
